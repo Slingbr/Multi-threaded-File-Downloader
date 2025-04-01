@@ -6,14 +6,14 @@ public class FileDownloader {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         
-        // Step 1: Get file URL
+  
         System.out.println("Enter the URL of the file to download:");
         String fileURL = input.nextLine();
 
-        // Step 2: Get number of threads
+ 
         System.out.println("How many threads would you like to use? (Max: 10)");
         int threadCount = input.nextInt();
-        input.nextLine(); // Consume newline
+        input.nextLine(); 
         
         if (threadCount < 1 || threadCount > 10) {
             System.out.println("Invalid thread count! Using default (4 threads).");
@@ -21,7 +21,7 @@ public class FileDownloader {
         }
         input.close();
 
-        // Step 3: Get the file name from the URL
+
         String fileName = fileURL.substring(fileURL.lastIndexOf("/") + 1);
         int fileSize = getFileSize(fileURL);
 
@@ -32,7 +32,7 @@ public class FileDownloader {
 
         System.out.println("File Size: " + fileSize + " bytes");
 
-        // Step 4: Create threads for downloading
+
         int partSize = fileSize / threadCount;
         ArrayList<DownloadThread> threads = new ArrayList<>();
 
@@ -46,7 +46,7 @@ public class FileDownloader {
             thread.start(); // Start downloading
         }
 
-        // Step 5: Wait for all threads to finish
+
         for (DownloadThread thread : threads) {
             try {
                 thread.join();
@@ -55,7 +55,7 @@ public class FileDownloader {
             }
         }
 
-        // Step 6: Merge files
+    
         try {
             FileMerger.mergeFiles(fileName, threadCount);
             System.out.println("Download Complete!");
@@ -66,7 +66,7 @@ public class FileDownloader {
         input.close();
     }
 
-    // Helper method to get file size
+
     private static int getFileSize(String fileURL) {
         try {
             URL url = new URL(fileURL);
