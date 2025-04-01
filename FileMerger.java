@@ -1,4 +1,7 @@
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class FileMerger {
     public static void mergeFiles(String fileName, int parts) throws IOException {
@@ -15,7 +18,7 @@ public class FileMerger {
             }
 
             fis.close();
-            partFile.delete(); // Delete chunk file after merging
+            partFile.delete(); // Delete chunk after merging
         }
 
         fos.close();

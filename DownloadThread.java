@@ -1,5 +1,8 @@
-import java.io.*;
-import java.net.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class DownloadThread extends Thread {
     private String fileURL;
