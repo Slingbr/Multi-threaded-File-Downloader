@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class FileDownloaderTest {
 
-    // Testing URL creation and validation
+ 
     @Test
     public void testCreateValidURL() throws Exception {
         URI uri = URI.create("https://example.com/file.zip");
@@ -17,14 +17,13 @@ public class FileDownloaderTest {
         assertEquals("https://example.com/file.zip", url.toString(), "URL should match the input");
     }
 
-    // Test threads is within a valid range
+   
     @Test
     public void testValidThreadCount() {
         int threadCount = 4;  
         assertTrue(threadCount >= 1 && threadCount <= 10, "Thread count should be between 1 and 10");
     }
 
-    // Test if created with valid parameters
     @Test
     public void testDownloadThreadCreation() {
         String fileURL = "https://example.com/file.zip";
