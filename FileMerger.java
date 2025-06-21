@@ -18,7 +18,7 @@ public class FileMerger {
             }
 
             fis.close();
-            partFile.delete(); // Delete chunk after merging
+            partFile.delete();
         }
 
         fos.close();
